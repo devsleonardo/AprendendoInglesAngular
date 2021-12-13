@@ -1,0 +1,30 @@
+<div class="mt-5 container rounded  ">
+  <div class=" p-4 ">
+    <div class="jumbotron">
+      <div class="row">
+        <div class="col-sm-7">
+          <app-progress></app-progress>
+        </div>
+        <div class="col-sm-5">
+          <app-attempts></app-attempts>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p class=" h5 ">{{instrucao}}</p>
+          <p class="h6">{{frases[0].fraseEng}}</p>
+          <div class="form-group">
+            <textarea class="form-control" rows="4  " (input)="atualizaResposta($event)"></textarea>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="d-flex justify-content-end">
+                <button type="button" class="mt-3 btn btn-primary btn-lg"
+                  (click)="verificarResposta()">Verificar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

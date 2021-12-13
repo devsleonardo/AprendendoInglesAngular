@@ -1,16 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {NavbarComponent} from './navbar/navbar.component';
+import { PainelComponent } from './painel/painel.component';
+import { AttemptsComponent } from './attempts/attempts.component';
+import { ProgressComponent } from './progress/progress.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    PainelComponent,
+    AttemptsComponent,
+    ProgressComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
