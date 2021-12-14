@@ -3,18 +3,18 @@
     <div class="jumbotron">
       <div class="row">
         <div class="col-sm-7">
-          <app-progress></app-progress>
+          <app-progress [percentual]="percentual"></app-progress>
         </div>
         <div class="col-sm-5">
-          <app-attempts></app-attempts>
+          <app-attempts [tentativas]="tentativas"></app-attempts>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <p class=" h5 ">{{instrucao}}</p>
-          <p class="h6">{{frases[0].fraseEng}}</p>
+          <p class="h6">{{rodadaFrase.fraseEng}}</p>
           <div class="form-group">
-            <textarea class="form-control" rows="4  " (input)="atualizaResposta($event)"></textarea>
+            <textarea class="form-control" rows="4  " (input)="atualizaResposta($event)" [value]="resposta"></textarea>
           </div>
           <div class="row">
             <div class="col">
