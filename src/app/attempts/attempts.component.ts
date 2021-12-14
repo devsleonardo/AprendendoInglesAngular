@@ -16,7 +16,6 @@ export class AttemptsComponent implements OnInit, OnChanges{
   ]
 
   constructor() {
-    
    }
 
   ngOnChanges(): void {

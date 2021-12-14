@@ -1,2 +1,33 @@
 <app-navbar></app-navbar>
-<app-painel></app-painel>
+
+<div *ngIf="gamePlay; else endGame">
+  <app-painel (encerrarJogo)="encerrarJogo($event)"></app-painel>
+</div>
+
+<ng-template #endGame>
+  <div *ngIf="tipoEncerramento === 'derrota' ; else endGameWin" class="container mt-5 d-flex justify-content-center">
+    <div class="row">
+      <div class="col-sm-8">
+        <h3 class="text-danger">Fim de Jogo, Infelizmente você perdeu!</h3>
+        <button type="button" class="mt-5 btn btn-danger btn-lg" (click)="newGame()">Jogar Novamente</button>
+      </div>
+      <div class="col-sm-4">
+        <img class="img-global" src="../assets/crying.gif">
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #endGameWin>
+  <div class="container mt-5 d-flex justify-content-center">
+    <div class="row">
+      <div class="col-sm-8">
+        <h3 class="text-primary">Parabéns, lição concluída!</h3>
+        <button type="button" class="mt-5 btn btn-primary btn-lg" (click)="newGame()">Jogar Novamente</button>
+      </div>
+      <div class="col-sm-4">
+        <img class="img-global" src="../assets/gameWin.gif">
+      </div>
+    </div>
+  </div>
+</ng-template>

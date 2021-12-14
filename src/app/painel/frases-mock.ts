@@ -1,9 +1,15 @@
 import { Frase } from "../shared/frase.model";
 
 export const FRASES:Frase[] = [
-  {fraseEng:"I like to learn", frasePtBr:"Eu gosto de aprender"},
-  {fraseEng:"I watch tv", frasePtBr:"Eu assisto tv"},
-  {fraseEng:"How are you?", frasePtBr:"Como vai você?"},
-  {fraseEng:"I eat bread", frasePtBr:"Eu como pão"},
+  {fraseEng:"Banana", frasePtBr:"Banana"},
+  {fraseEng:"Dog", frasePtBr:"Cachorro"},
+  {fraseEng:"Fox", frasePtBr:"Raposa"},
+  {fraseEng:"House", frasePtBr:"Casa"},
+  {fraseEng:"Coffe", frasePtBr:"Café"},
+  {fraseEng:"Tea", frasePtBr:"Chá"},
+  {fraseEng:"Hello", frasePtBr:"Olá"},
+  {fraseEng:"Milk", frasePtBr:"Leite"},
+  {fraseEng:"Walter", frasePtBr:"Água"},
+  {fraseEng:"Sugar", frasePtBr:"Açúcar"},
 
 ]

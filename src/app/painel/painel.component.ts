@@ -1,5 +1,5 @@
 import { Frase } from './../shared/frase.model';
-import { Component, OnInit,  } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { FRASES } from './frases-mock';
 
 @Component({
@@ -7,10 +7,10 @@ import { FRASES } from './frases-mock';
   templateUrl: './painel.component.html',
   styleUrls: ['./painel.component.scss']
 })
-export class PainelComponent implements OnInit {
+export class PainelComponent implements OnInit, OnDestroy {
 
   public frases:Frase[] = FRASES
-  public instrucao:string = "Trazuda a frase: "
+  public instrucao:string = "Trazuda esta frase: "
   public resposta:string = ""
 
   public rodada:number = 0
@@ -20,9 +20,15 @@ export class PainelComponent implements OnInit {
 
   public tentativas:number = 3
 
+  @Output() public encerrarJogo:EventEmitter<string> = new EventEmitter()
+
 
   constructor() {
     this.rodadaFrase = this.frases[this.rodada]
+  }
+
+  ngOnDestroy():void{
+    console.log("Componente Painel Foi destruido")
   }
 
   ngOnInit(): void {
@@ -41,7 +47,7 @@ export class PainelComponent implements OnInit {
 
   public verificarResposta():void{
     
-    if (this.rodadaFrase.frasePtBr == this.resposta){
+    if (this.rodadaFrase.frasePtBr.toUpperCase() == this.resposta.toUpperCase()){
       alert("A tradução esta correta!")
 
       //troca pergunta da rodada
@@ -50,13 +56,18 @@ export class PainelComponent implements OnInit {
       //Atualiza percentual
       this.percentual= this.percentual + (100 / this.frases.length)
 
+      //conclução com sucesso
+      if(this.rodada === this.frases.length){
+        this.encerrarJogo.emit("vitoria")
+      }
+
       this.atualizarResposta()
       
     }else{
       //diminuir a variavel tentativas
       this.tentativas--
       if(this.tentativas === -1){
-        alert("Você perdeu todas as tentativas!")
+        this.encerrarJogo.emit("derrota")
       }
     }
 
